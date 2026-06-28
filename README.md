@@ -4,14 +4,14 @@
 [![os](https://img.shields.io/badge/Supported%20OS-Linux-blue.svg)]()
 [![license](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-# Rubytask
+# Fyu
 Fyu is a lightweight command-line utility for managing tasks and notes without leaving the terminal workflow.
 
 ## Features
-- Task CRUD & Tracking
-- Task Detail Viewers
-- Data Import/Export
-- Task Search & Notes Management
+- Task CRUD & Tracking.
+- Task Detail Viewers.
+- Data Import/Export.
+- Task Search & Notes Management.
 - And more features.
 
 ## Disclaimer
@@ -33,9 +33,9 @@ For more detailed installation and uninstallation instructions, see [.docs/insta
 ``` bash
 fyu --create new_task
 fyu --rename new_task test
-fyu --export
-fyu --add-note test
-fyu --open test
+fyu --export tasks.zip
+fyu --import tasks.zip
+fyu --list
 ```
 And more commands.
 
