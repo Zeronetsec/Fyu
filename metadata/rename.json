@@ -1,0 +1,5 @@
+{
+    "Command": "--rename",
+    "Args": "<task> <new_task>",
+    "Description": "change the name of an existing task"
+}

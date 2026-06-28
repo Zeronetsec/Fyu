@@ -1,0 +1,5 @@
+{
+    "Command": "--finish",
+    "Args": "<task>",
+    "Description": "mark a task as completed"
+}

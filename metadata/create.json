@@ -1,0 +1,5 @@
+{
+    "Command": "--create",
+    "Args": "<task> [<date>]",
+    "Description": "create a new task"
+}

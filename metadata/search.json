@@ -1,0 +1,5 @@
+{
+    "Command": "--search",
+    "Args": "<keyword>",
+    "Description": "find notes matching a specific keyword"
+}

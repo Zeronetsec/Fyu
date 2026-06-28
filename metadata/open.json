@@ -1,0 +1,5 @@
+{
+    "Command": "--open",
+    "Args": "<task>",
+    "Description": "view the full details of a task"
+}

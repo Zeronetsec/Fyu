@@ -1,0 +1,5 @@
+{
+    "Command": "--export",
+    "Args": "<outfile.zip>",
+    "Description": "save all data into a backup .zip file"
+}

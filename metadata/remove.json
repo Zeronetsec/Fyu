@@ -1,0 +1,5 @@
+{
+    "Command": "--remove",
+    "Args": "<task>",
+    "Description": "remove a task"
+}

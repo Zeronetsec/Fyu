@@ -1,0 +1,5 @@
+{
+    "Command": "--import",
+    "Args": "<source.zip>",
+    "Description": "restore data from a backup .zip file"
+}

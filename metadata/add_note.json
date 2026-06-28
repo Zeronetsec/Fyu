@@ -1,0 +1,5 @@
+{
+    "Command": "--add-note",
+    "Args": "<task>",
+    "Description": "add a note to a task"
+}
