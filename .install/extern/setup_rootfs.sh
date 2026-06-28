@@ -20,6 +20,7 @@ function install::extern::setupRootfs() {
         "
             command proot-distro login ${rname} \
                 -- bash -c '
+                    set -o errexit
                     command apt update -y
                     export DEBIAN_FRONTEND=noninteractive
                     command apt \
@@ -39,7 +40,7 @@ function install::extern::setupRootfs() {
                 export LS_OPTIONS='--color=always'
                 export PROMPT_DIRTRIM=2
                 export PROOT_NO_SECCOMPT=1
-            ' >> ${rootfs}/${rname}/rootfs/root/.bashrc
+            ' > ${rootfs}/${rname}/rootfs/root/.bashrc
         " \
         "Setup rootfs bashrc..."
 }

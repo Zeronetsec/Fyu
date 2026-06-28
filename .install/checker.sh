@@ -1,11 +1,13 @@
 function install::checker() {
     local name="fyu"
-    if command -v ${name} &>/dev/null; then
-        echo -e "${GG}[+] ${N}${name^} installed!"
-        echo -e "${GG}[+] ${N}Usage: ${GG}${name} --help ${N}to show helper"
-        return 0
-    else
-        echo -e "${R}[!] ${N}Failed installing ${name}!"
-        return 1
+    if [[ "${__ANDROID__}" != true ]]; then
+        if command -v ${name} &>/dev/null; then
+            echo -e "${GG}[+] ${N}${name^} installed!"
+            echo -e "${GG}[+] ${N}Usage: ${GG}${name} --help ${N}to show helper"
+            return 0
+        else
+            echo -e "${R}[!] ${N}Failed installing ${name}!"
+            return 1
+        fi
     fi
 }

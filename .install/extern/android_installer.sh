@@ -39,13 +39,16 @@ function install::extern::androidInstaller() {
         "
             command proot-distro login ${rname} \
                 -- bash -c '
+                    set -o errexit
                     command chmod +x /root/fyu/install.sh
                 ' \
         " \
-        "Set permission for: ${GG}${rootfs}/rootfs/root/fyu/install.sh${N}"
+        "Set permission for: ${GG}${rootfs}/${rname}/rootfs/root/fyu/install.sh${N}"
 
     command proot-distro login "${rname}" \
         -- bash -c '
+            set -o errexit
+            export __ANDROID__=true
             command bash /root/fyu/install.sh
         '
 
@@ -56,7 +59,7 @@ function install::extern::androidInstaller() {
             exec proot-distro login \"${rname}\" --work-dir \$(pwd) -- fyu \"\${@}\"
         ' > ${bin}/fyu
     " \
-    "Create wrapper: ${GG}${bin}/fyu${N}"
+    "Bridging: ${GG}${bin}/fyu ${DG}-> ${GG}${rootfs}/${rname}/rootfs/usr/bin/fyu${N}"
 
     install::getinstall \
         "command chmod +x ${bin}/fyu" \
