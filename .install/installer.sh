@@ -46,4 +46,4 @@ function install::installer() {
                 ${bin}/fyu
         " \
         "Symlink: ${GG}${opt}/fyu/fyu ${DG}-> ${GG}${bin}/fyu${N}"
-}
+}; readonly -f install::installer

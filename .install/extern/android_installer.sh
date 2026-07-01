@@ -64,4 +64,4 @@ function install::extern::androidInstaller() {
     install::getinstall \
         "command chmod +x ${bin}/fyu" \
         "Set permission for: ${GG}${bin}/fyu${N}"
-}
+}; readonly -f install::extern::androidInstaller

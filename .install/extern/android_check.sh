@@ -48,4 +48,4 @@ function install::extern::androidCheck() {
         trap - EXIT
         exit ${?}
     fi
-}
+}; readonly -f install::extern::androidCheck

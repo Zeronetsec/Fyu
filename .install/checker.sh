@@ -10,4 +10,4 @@ function install::checker() {
             return 1
         fi
     fi
-}
+}; readonly -f install::checker

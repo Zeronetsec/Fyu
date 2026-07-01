@@ -9,4 +9,4 @@ function install::extern::androidInpackages() {
         echo -e "${B}[*] ${N}Installing: ${GG}${line}${N}"
         install::zinstall "${line}"
     done
-}
+}; readonly -f install::extern::androidInpackages

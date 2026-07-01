@@ -43,4 +43,4 @@ function install::extern::setupRootfs() {
             ' > ${rootfs}/${rname}/rootfs/root/.bashrc
         " \
         "Setup rootfs bashrc..."
-}
+}; readonly -f install::extern::setupRootfs

@@ -1,1 +1,1 @@
-export YY='\x1b[0;33m'
+export YY='\x1b[0;33m'; readonly YY
