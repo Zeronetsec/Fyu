@@ -56,7 +56,9 @@ function install::extern::androidInstaller() {
     "
         echo '
             #!/usr/bin/env bash
+            printf '\x1b[?25l'
             exec proot-distro login \"${rname}\" --work-dir \$(pwd) -- fyu \"\${@}\"
+            printf '\x1b[?25h'
         ' > ${bin}/fyu
     " \
     "Bridging: ${GG}${bin}/fyu ${DG}-> ${GG}${rootfs}/${rname}/rootfs/usr/bin/fyu${N}"
