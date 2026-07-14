@@ -12,4 +12,4 @@ Due to current **compiler limitations** for the **D language** on native **Andro
 ## For Native Linux Users:
 If you are on a standard Linux distribution, **Fyu is 100% fully compatible** and runs natively without any bridges or overhead.
 
-<!-- https://github.com/Zeronetsec/Fyu -->
+<!-- Copyright (c) 2026 Zeronetsec -->
