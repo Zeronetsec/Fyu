@@ -1,8 +1,10 @@
 <!-- https://github.com/Zeronetsec/Fyu -->
 
-<img src="https://img.shields.io/badge/Fyu-Version%200.1-blue.svg?style=square&logo=d&logoColor=red" />
-<img src="https://img.shields.io/badge/Supported%20OS-Linux-blue.svg?style=square&logo=linux" />
-<img src="https://img.shields.io/badge/License-MIT-blue.svg?style=square&logo=github" />
+<div style="display: flex; gap: 3px; justify-content: left;">
+    <img src="https://img.shields.io/badge/Fyu-Version%200.1-blue.svg?style=square&logo=d&logoColor=red" />
+    <img src="https://img.shields.io/badge/Supported%20OS-Linux-blue.svg?style=square&logo=linux" />
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=square&logo=github" />
+</div>
 
 # Fyu
 Fyu is a lightweight command-line utility for managing tasks and notes without leaving the terminal workflow.
