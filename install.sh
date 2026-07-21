@@ -42,10 +42,12 @@ include : '(
 )'
 
 __BACKUP__=false
+__NOREMRFS__=false
 
 while [[ ${#} -gt 0 ]]; do
     case "${1}" in
         "--backup") export __BACKUP__=true ;;
+        "--no-remove-rootfs") export __NOREMRFS__=true ;;
     esac
     shift
 done

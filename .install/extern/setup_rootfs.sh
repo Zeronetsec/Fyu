@@ -2,19 +2,23 @@ function install::extern::setupRootfs() {
     echo -e "${B}[*] ${N}Installing: ${GG}proot-distro${N}"
     install::zinstall "proot-distro"
 
-    if [[ -d "${rootfs}/${rname}" ]]; then
-        install::getinstall \
-            "command proot-distro remove ${rname}" \
-            "Removing old rootfs..."
+    if [[ "${__NOREMRFS__}" == false ]]; then
+        if [[ -d "${rootfs}/${rname}" ]]; then
+            install::getinstall \
+                "command proot-distro remove ${rname}" \
+                "Removing old rootfs..."
+        fi
     fi
 
-    install::getinstall \
-        "
-            command proot-distro install \
-                debian:13 \
-                --name ${rname}
-        " \
-        "Installing rootfs: ${GG}debian:13 ${DG}-> ${GG}${rname}${N}"
+    if [[ ! -d "${rootfs}/${rname}" ]]; then
+        install::getinstall \
+            "
+                command proot-distro install \
+                    debian:13 \
+                    --name ${rname}
+            " \
+            "Installing rootfs: ${GG}debian:13 ${DG}-> ${GG}${rname}${N}"
+    fi
 
     install::getinstall \
         "

@@ -3,6 +3,7 @@
 # Installation
 `install.sh` optional option:
 - `--backup`
+- `--no-remove-rootfs`
 
 Use `--backup` to create a backup of the existing Fyu installation before replacing it.
 
