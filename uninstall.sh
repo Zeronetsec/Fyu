@@ -43,17 +43,17 @@ done
 
 if [[ "${__RMBK__}" == true ]]; then
     install::getinstall \
-        "command rm -f ${opt}/comet_*.zip.bak" \
+        "command rm -f ${opt}/fyu_*.zip.bak" \
         "Removing all backup..."
 fi
 
 install::getinstall \
-    "command rm -rf ${opt}/comet" \
-    "Removing: ${GG}${opt}/comet${N}"
+    "command rm -rf ${opt}/fyu" \
+    "Removing: ${GG}${opt}/fyu${N}"
 
 install::getinstall \
-    "command rm -f ${bin}/comet" \
-    "Removing: ${GG}${bin}/comet${N}"
+    "command rm -f ${bin}/fyu" \
+    "Removing: ${GG}${bin}/fyu${N}"
 
 if [[ "${__NRMRFS__}" == true ]]; then
     if [[ -d "${rootfs}/${rname}" ]]; then
