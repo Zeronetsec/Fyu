@@ -1,33 +1,29 @@
 <!-- https://github.com/Zeronetsec/Fyu -->
 
 # Installation
-`install.sh` optional option:
+`install.sh` optional options (can be used together):
 - `--backup`
+- └── create a backup of the existing source installation before replacing it.
 - `--no-remove-rootfs`
+- └── do not delete rootfs.
 
-Use `--backup` to create a backup of the existing Fyu installation before replacing it.
-
-## Termux & Linux (root)
+### Usage
 ```bash
 git clone https://github.com/Zeronetsec/Fyu
-cd Fyu
-chmod +x install.sh
-./install.sh
+bash Fyu/install.sh <option>
 ```
 
-## Linux (user)
-```bash
-git clone https://github.com/Zeronetsec/Fyu
-cd Fyu
-chmod +x install.sh
-sudo ./install.sh
-```
+# Uninstallation
+`uninstall.sh` optional options (can be used together):
+- `--remove-backup`
+- └── remove all backup found.
+- `--remove-rootfs=<true|false>`
+- └── remove rootfs option.
 
-## Uninstallation
+### Usage
 ```bash
 export prefix="${PREFIX:-/usr}"
-rm -f "${prefix}/bin/fyu"
-rm -rf "${prefix}/opt/fyu"
+bash $prefix/opt/fyu/uninstall.sh <option>
 ```
 
 <!-- Copyright (c) 2026 Zeronetsec -->
