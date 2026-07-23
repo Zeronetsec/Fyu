@@ -44,6 +44,7 @@ function install::extern::androidCheck() {
         install::extern::setupRootfs
         install::extern::androidInpackages
         install::extern::androidInstaller
+        install::chmod
         install::checker
         trap - EXIT
         exit ${?}

@@ -60,8 +60,4 @@ function install::extern::androidInstaller() {
         ' > ${bin}/fyu
     " \
     "Bridging: ${GG}${bin}/fyu ${DG}-> ${GG}${rootfs}/${rname}/rootfs/usr/bin/fyu${N}"
-
-    install::getinstall \
-        "command chmod +x ${bin}/fyu" \
-        "Set permission for: ${GG}${bin}/fyu${N}"
 }; readonly -f install::extern::androidInstaller
