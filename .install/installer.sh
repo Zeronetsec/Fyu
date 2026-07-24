@@ -35,7 +35,7 @@ function install::installer() {
                     --compiler=ldc2 \
                     --build=release
             " \
-            "Building: ${GG}fyu${N}"
+            "Compiling: ${GG}fyu${N}"
         cd
     )
 
