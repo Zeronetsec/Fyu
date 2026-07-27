@@ -30,11 +30,13 @@ include : '(
     .install/extern/xvariable
 )'
 
+HOME="${HOME}"
 __RMBK__=false
 __NRMRFS__=true
 
 while [[ ${#} -gt 0 ]]; do
     case "${1}" in
+        "--home="*) export HOME="${1#*=}" ;;
         "--remove-backup") export __RMBK__=true ;;
         "--remove-rootfs="*) export __NRMRFS__="${1#*=}" ;;
     esac
@@ -43,17 +45,17 @@ done
 
 if [[ "${__RMBK__}" == true ]]; then
     install::getinstall \
-        "command rm -f ${opt}/fyu_*.zip.bak" \
+        "command rm -f ${opt}/${targetins}_*.zip.bak" \
         "Removing all backup..."
 fi
 
 install::getinstall \
-    "command rm -rf ${opt}/fyu" \
-    "Removing: ${GG}${opt}/fyu${N}"
+    "command rm -rf ${opt}/${targetins}" \
+    "Removing: ${GG}${opt}/${targetins}${N}"
 
 install::getinstall \
-    "command rm -f ${bin}/fyu" \
-    "Removing: ${GG}${bin}/fyu${N}"
+    "command rm -f ${bin}/${targetins}" \
+    "Removing: ${GG}${bin}/${targetins}${N}"
 
 if [[ "${__NRMRFS__}" == true ]]; then
     if [[ -d "${rootfs}/${rname}" ]]; then
@@ -69,7 +71,7 @@ if [[ "${__NRMRFS__}" == true ]]; then
     fi
 fi
 
-echo -e "${GG}[+] ${N}Fyu removed"
+echo -e "${GG}[+] ${N}${targetins^} removed!"
 
 trap - EXIT
 exit ${?}

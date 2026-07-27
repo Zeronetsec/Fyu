@@ -43,6 +43,8 @@ function install::extern::androidCheck() {
         echo -e "${YY}[!] ${N}Installing within the rootfs."
         install::extern::setupRootfs
         install::extern::androidInpackages
+        install::backup
+        install::postins
         install::extern::androidInstaller
         install::chmod
         install::checker

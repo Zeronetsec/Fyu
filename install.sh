@@ -34,6 +34,9 @@ include : '(
     .install/zinstall
     .install/zparser
     .install/chmod
+    .install/backup
+    .install/postins
+    .install/symlink
     .install/extern/xcolor
     .install/extern/xvariable
     .install/extern/android_check
@@ -42,11 +45,13 @@ include : '(
     .install/extern/setup_rootfs
 )'
 
+HOME="${HOME}"
 __BACKUP__=false
 __NOREMRFS__=false
 
 while [[ ${#} -gt 0 ]]; do
     case "${1}" in
+        "--home="*) export HOME="${1#*=}" ;;
         "--backup") export __BACKUP__=true ;;
         "--no-remove-rootfs") export __NOREMRFS__=true ;;
     esac
@@ -56,7 +61,10 @@ done
 install::extern::androidCheck
 install::inpackages
 install::prepdir
+install::backup
+install::postins
 install::installer
+install::symlink
 install::chmod
 install::checker
 

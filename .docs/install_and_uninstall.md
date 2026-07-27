@@ -2,6 +2,8 @@
 
 # Installation
 `install.sh` optional options (can be used together):
+- `--home=<path>`
+- └── override `$HOME` value.
 - `--backup`
 - └── create a backup of the existing source installation before replacing it.
 - `--no-remove-rootfs`
@@ -15,6 +17,8 @@ bash Fyu/install.sh <option>
 
 # Uninstallation
 `uninstall.sh` optional options (can be used together):
+- `--home=<path>`
+- └── override `$HOME` value.
 - `--remove-backup`
 - └── remove all backup found.
 - `--remove-rootfs=<true|false>`
