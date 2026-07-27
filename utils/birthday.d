@@ -16,7 +16,7 @@ void birthday() {
     string bdate = "06-26";
     if (currentDate == bdate) {
         writef(
-            "%s› %sHappy birthday for %sfyu %s🎉\n",
+            "%s› %sHappy birthday for %sFyu %s🎉\n",
             R, N, GG, N
         );
         writeln();
