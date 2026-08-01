@@ -63,17 +63,26 @@ class AddNote : Command {
         }
 
         string existingNotes = "-";
-        if ("notes" in note && note["notes"].type == JSONType.string) {
+        if (
+            "notes" in note &&
+            note["notes"].type == JSONType.string
+        ) {
             existingNotes = note["notes"].str.strip();
         }
 
-        if (existingNotes == "-" || existingNotes.length == 0) {
+        if (
+            existingNotes == "-" ||
+            existingNotes.length == 0
+        ) {
             note["notes"] = input;
         } else {
             note["notes"] = existingNotes ~ "\n" ~ input;
         }
 
-        std.file.write(filePath, note.toPrettyString());
+        std.file.write(
+            filePath, note.toPrettyString(),
+        );
+
         writef(
             "%s[+] %sNote added to: %s%s%s\n",
             GG, N, GG, name, N,

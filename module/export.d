@@ -19,8 +19,8 @@ class Export : Command {
             missingArgument();
             return;
         }
-        string zipName = args[0].strip();
 
+        string zipName = args[0].strip();
         if (!zipName.endsWith(".zip")) {
             writef(
                 "%s[!] %sInvalid file extension!\n",
@@ -33,6 +33,7 @@ class Export : Command {
             );
             return;
         }
+
         export_to_zip(zipName);
     }
 
@@ -61,9 +62,11 @@ class Export : Command {
                 auto am = new ArchiveMember();
 
                 am.name = baseName(entry.name);
-                am.expandedData(cast(ubyte[]) fileData);
-                am.compressionMethod = CompressionMethod.deflate;
+                am.expandedData(
+                    cast(ubyte[]) fileData,
+                );
 
+                am.compressionMethod = CompressionMethod.deflate;
                 zip.addMember(am);
             }
         }
@@ -77,7 +80,10 @@ class Export : Command {
         }
 
         void[] compressedData = zip.build();
-        std.file.write(zipName, cast(ubyte[]) compressedData);
+        std.file.write(
+            zipName, cast(ubyte[]) compressedData,
+        );
+
         writef(
             "%s[+] %sSuccessfully exported all task: %s%s%s\n",
             GG, N, GG, zipName, N,

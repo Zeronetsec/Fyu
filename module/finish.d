@@ -55,7 +55,10 @@ class Finish : Command {
         string finishDate = currentTime.toISOExtString()[0..10];
 
         note["finish_date"] = finishDate;
-        std.file.write(filePath, note.toPrettyString());
+        std.file.write(
+            filePath, note.toPrettyString(),
+        );
+
         writef(
             "%s[+] %sTask: %s%s %sfinished on %s%s%s\n",
             GG, N, GG, name, N, GG, finishDate, N,

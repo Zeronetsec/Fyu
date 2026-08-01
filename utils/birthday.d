@@ -17,7 +17,7 @@ void birthday() {
     if (currentDate == bdate) {
         writef(
             "%s› %sHappy birthday for %sFyu %s🎉\n",
-            R, N, GG, N
+            R, N, GG, N,
         );
         writeln();
     }

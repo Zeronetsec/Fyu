@@ -1,0 +1,5 @@
+{
+    "Command": "--edit-note",
+    "Args": "<task> <notenum>",
+    "Description": "edit a specific note from a task"
+}

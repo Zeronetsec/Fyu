@@ -20,6 +20,7 @@ class Helper : Command {
     private static immutable string[string] metaFS = () {
         string[string] embedded;
         enum string[] jsonFiles = import("metadata.txt").splitLines();
+
         static foreach (file; jsonFiles) {
             static if (file.length > 0) {
                 embedded[file] = import("metadata/" ~ file);
@@ -31,12 +32,13 @@ class Helper : Command {
     void execute(string[] args) {
         banner();
         birthday();
+
         writef(
             "%sUsage: %sfyu %s<option> [<args>]%s\n",
-            N, GG, CC, N
+            N, GG, CC, N,
         );
-        writeln();
 
+        writeln();
         writef(
             "%sAvailable options:\n",
             N,
@@ -54,18 +56,18 @@ class Helper : Command {
                 string argsStr = hp.args != "" ? " " ~ hp.args : "";
                 writef(
                     "    %s* %s%s%s%s%s\n",
-                    DG, GG, hp.command, CC, argsStr, N
+                    DG, GG, hp.command, CC, argsStr, N,
                 );
 
                 writef(
                     "    %s└── %s%s%s\n",
-                    DG, WW, hp.description, N
+                    DG, WW, hp.description, N,
                 );
             }
             catch (JSONException e) {
                 writef(
                     "%s[!] %sError parsing %s: %s%s%s\n",
-                    R, N, filePath, GG, e.msg, N
+                    R, N, filePath, GG, e.msg, N,
                 );
             }
         }

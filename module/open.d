@@ -51,7 +51,10 @@ class Open : Command {
             string finishDate = note["finish_date"].str;
 
             string notesContent = "-";
-            if ("notes" in note && note["notes"].type == JSONType.string) {
+            if (
+                "notes" in note &&
+                note["notes"].type == JSONType.string
+            ) {
                 notesContent = note["notes"].str.strip();
             }
 
@@ -70,7 +73,10 @@ class Open : Command {
                 N, GG, finishDate, N,
             );
 
-            if (notesContent == "-" || notesContent.length == 0) {
+            if (
+                notesContent == "-" ||
+                notesContent.length == 0
+            ) {
                 writef(
                     "%sNotes: %s-%s\n",
                     N, GG, N,
@@ -81,7 +87,8 @@ class Open : Command {
                     N,
                 );
 
-                foreach (line; notesContent.splitLines()) {
+                foreach (
+                    line; notesContent.splitLines()) {
                     writef(
                         "%s- %s%s%s\n",
                         DG, WW, line, N,

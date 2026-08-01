@@ -26,6 +26,7 @@ class Create : Command {
         if (args.length >= 2) {
             startDate = args[1].strip();
         }
+
         create_note(name, startDate);
     }
 
@@ -59,7 +60,10 @@ class Create : Command {
         note["start_date"] = startDate;
         note["finish_date"] = "-";
 
-        std.file.write(path, note.toPrettyString());
+        std.file.write(
+            path, note.toPrettyString(),
+        );
+
         writef(
             "%s[+] %sTask: %s%s %screated successfully\n",
             GG, N, GG, name, N,

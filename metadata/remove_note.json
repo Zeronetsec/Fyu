@@ -1,0 +1,5 @@
+{
+    "Command": "--remove-note",
+    "Args": "<task> <notenum>",
+    "Description": "remove a specific note from a task"
+}

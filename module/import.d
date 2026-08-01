@@ -21,7 +21,6 @@ class Import : Command {
         }
 
         string zipPath = args[0].strip();
-
         if (!zipPath.endsWith(".zip")) {
             writef(
                 "%s[!] %sInvalid file extension!\n",
@@ -42,6 +41,7 @@ class Import : Command {
             );
             return;
         }
+
         import_from_zip(zipPath);
     }
 
@@ -58,11 +58,18 @@ class Import : Command {
         auto zip = new ZipArchive(zipData);
         size_t importedCount = 0;
 
-        foreach (string name, ArchiveMember am; zip.directory) {
+        foreach (
+            string name,
+            ArchiveMember am; zip.directory) {
             if (name.endsWith(".json")) {
                 zip.expand(am);
-                string destFilePath = buildPath(destDir, baseName(name));
-                std.file.write(destFilePath, am.expandedData);
+                string destFilePath = buildPath(
+                    destDir, baseName(name),
+                );
+
+                std.file.write(
+                    destFilePath, am.expandedData,
+                );
                 importedCount++;
             }
         }

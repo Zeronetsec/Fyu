@@ -49,9 +49,16 @@ class Search : Command {
             string fileContent = readText(entry.name);
             JSONValue note = parseJSON(fileContent);
 
-            if ("notes" in note && note["notes"].type == JSONType.string) {
+            if (
+                "notes" in note &&
+                note["notes"].type == JSONType.string
+            ) {
                 string notesContent = note["notes"].str;
-                if (notesContent.toLower().canFind(lowerKeyword)) {
+                if (
+                    notesContent.toLower().canFind(
+                        lowerKeyword,
+                    )
+                ) {
                     foundAny = true;
                     string taskName = note["name"].str;
                     string startDate = note["start_date"].str;

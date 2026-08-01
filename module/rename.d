@@ -19,7 +19,11 @@ class Rename : Command {
             missingArgument();
             return;
         }
-        rename_note(args[0].strip(), args[1].strip());
+
+        rename_note(
+            args[0].strip(),
+            args[1].strip(),
+        );
     }
 
     void rename_note(string oldName, string newName) {
@@ -36,23 +40,32 @@ class Rename : Command {
             )) {
                 fileFound = true;
 
-                string filename = stripExtension(baseName(entry.name));
+                string filename = stripExtension(
+                    baseName(entry.name),
+                );
+
                 string[] parts = filename.split("_");
                 string date = "";
 
                 if (parts.length >= 2) {
-                    date = filename[parts[0].length + 1 .. $];
+                    date = filename[
+                        parts[0].length + 1 .. $
+                    ];
                 }
 
                 string newFileName = newName ~ "_" ~ date ~ ".json";
-                string newFilePath = buildPath(dataDir, newFileName);
+                string newFilePath = buildPath(
+                    dataDir, newFileName,
+                );
 
                 string fileContent = readText(entry.name);
                 JSONValue data = parseJSON(fileContent);
                 data["name"] = newName;
-                std.file.write(newFilePath, data.toPrettyString());
-                remove(entry.name);
+                std.file.write(
+                    newFilePath, data.toPrettyString(),
+                );
 
+                remove(entry.name);
                 writef(
                     "%s[+] %sRenamed: %s%s %s-> %s%s%s\n",
                     GG, N, GG, oldName, DG, GG, newName, N,
