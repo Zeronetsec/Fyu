@@ -1,0 +1,5 @@
+{
+    "Command": "--info",
+    "Args": "[<finish|unfinish>]",
+    "Description": "display task statistics and progress summary"
+}

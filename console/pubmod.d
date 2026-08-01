@@ -17,5 +17,8 @@ public import module_.import_;
 public import module_.search;
 public import module_.edit_note;
 public import module_.remove_note;
+public import module_.unfinish;
+public import module_.auto_remove;
+public import module_.info;
 
 // Copyright (c) 2026 Zeronetsec

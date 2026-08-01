@@ -12,10 +12,31 @@ import utils.getroot : getRoot;
 
 class List : Command {
     void execute(string[] args) {
-        list_notes();
+        string filter = "all";
+        if (args.length > 0) {
+            if (
+                args[0] == "finish" ||
+                args[0] == "unfinish"
+            ) {
+                filter = args[0];
+            } else {
+                writef(
+                    "%s[!] %sInvalid filter: %s%s%s\n",
+                    R, N, GG, args[0], N,
+                );
+
+                writef(
+                    "%s[!] %sTry: %sfyu --help%s\n",
+                    R, N, GG, N,
+                );
+                return;
+            }
+        }
+
+        list_notes(filter);
     }
 
-    void list_notes() {
+    void list_notes(string filter) {
         string dataDir = buildPath(
             getRoot(), "data", "user_data",
         );
@@ -29,12 +50,9 @@ class List : Command {
         }
 
         bool hasFiles = false;
-
         foreach (DirEntry entry; dirEntries(
             dataDir, "*.json", SpanMode.shallow,
         )) {
-            hasFiles = true;
-
             string fileContent = readText(entry.name);
             JSONValue note = parseJSON(fileContent);
 
@@ -42,6 +60,22 @@ class List : Command {
             string startDate = note["start_date"].str;
             string finishDate = note["finish_date"].str;
 
+            bool isFinished = (finishDate != "-");
+            if (
+                filter == "finish" &&
+                !isFinished
+            ) {
+                continue;
+            }
+
+            if (
+                filter == "unfinish" &&
+                isFinished
+            ) {
+                continue;
+            }
+
+            hasFiles = true;
             writef(
                 "%s* %s%s%s\n",
                 DG, GG, name, N,
@@ -60,10 +94,22 @@ class List : Command {
         }
 
         if (!hasFiles) {
-            writef(
-                "%s[!] %sThere are no tasks yet!\n",
-                R, N,
-            );
+            if (filter == "finish") {
+                writef(
+                    "%s[!] %sThere are no finished tasks!\n",
+                    R, N,
+                );
+            } else if (filter == "unfinish") {
+                writef(
+                    "%s[!] %sThere are no unfinished tasks!\n",
+                    R, N,
+                );
+            } else {
+                writef(
+                    "%s[!] %sThere are no tasks yet!\n",
+                    R, N,
+                );
+            }
         }
     }
 }

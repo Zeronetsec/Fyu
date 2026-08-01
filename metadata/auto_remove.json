@@ -1,0 +1,5 @@
+{
+    "Command": "--auto-remove",
+    "Args": "<finish|unfinish> [<startdate>]",
+    "Description": "bulk remove tasks by status and optional start date"
+}

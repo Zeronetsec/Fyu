@@ -36,6 +36,9 @@ void fyuConsole(string input) {
     commandMap["--search"] = new Search();
     commandMap["--edit-note"] = new EditNote();
     commandMap["--remove-note"] = new RemoveNote();
+    commandMap["--unfinish"] = new Unfinish();
+    commandMap["--auto-remove"] = new AutoRemove();
+    commandMap["--info"] = new Info();
 
     if (auto cmd = trigger in commandMap) {
         (*cmd).execute(remainingArgs);

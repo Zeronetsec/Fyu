@@ -1,5 +1,5 @@
 {
     "Command": "--list",
-    "Args": "",
+    "Args": "[<finish|unfinish>]",
     "Description": "list all tasks"
 }
