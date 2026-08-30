@@ -68,7 +68,8 @@ class Rename : Command {
                 remove(entry.name);
                 writef(
                     "%s[+] %sRenamed: %s%s %s-> %s%s%s\n",
-                    GG, N, GG, oldName, DG, GG, newName, N,
+                    color_GG, color_N, color_GG, oldName, color_DG,
+                    color_GG, newName, color_N,
                 );
             }
         }
@@ -76,7 +77,7 @@ class Rename : Command {
         if (!fileFound) {
             writef(
                 "%s[!] %sTask: %s%s %snot found!\n",
-                R, N, GG, oldName, N,
+                color_R, color_N, color_GG, oldName, color_N,
             );
         }
     }

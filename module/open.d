@@ -60,17 +60,17 @@ class Open : Command {
 
             writef(
                 "%s%s%s\n",
-                GG, taskName, N,
+                color_GG, taskName, color_N,
             );
 
             writef(
                 "%sStart: %s%s%s\n",
-                N, GG, startDate, N,
+                color_N, color_GG, startDate, color_N,
             );
 
             writef(
                 "%sFinish: %s%s%s\n",
-                N, GG, finishDate, N,
+                color_N, color_GG, finishDate, color_N,
             );
 
             if (
@@ -79,26 +79,26 @@ class Open : Command {
             ) {
                 writef(
                     "%sNotes: %s-%s\n",
-                    N, GG, N,
+                    color_N, color_GG, color_N,
                 );
             } else {
                 writef(
                     "%sNotes:\n",
-                    N,
+                    color_N,
                 );
 
                 foreach (
                     line; notesContent.splitLines()) {
                     writef(
                         "%s- %s%s%s\n",
-                        DG, WW, line, N,
+                        color_DG, color_WW, line, color_N,
                     );
                 }
             }
         } else {
             writef(
                 "%s[!] %sTask: %s%s %snot found!\n",
-                R, N, GG, name, N,
+                color_R, color_N, color_GG, name, color_N,
             );
         }
     }

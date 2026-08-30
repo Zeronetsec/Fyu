@@ -8,12 +8,12 @@ import utils.color;
 void invalidOption(string input) {
     writef(
         "%s[!] %sInvalid option: %s%s%s\n",
-        R, N, GG, input, N,
+        color_R, color_N, color_GG, input, color_N,
     );
 
     writef(
         "%s[!] %sTry: %sfyu --help%s\n",
-        R, N, GG, N,
+        color_R, color_N, color_GG, color_N,
     );
 }
 

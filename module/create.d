@@ -50,7 +50,7 @@ class Create : Command {
         if (exists(path)) {
             writef(
                 "%s[!] %sTask: %s%s %sis already exist!\n",
-                R, N, GG, name, N,
+                color_R, color_N, color_GG, name, color_N,
             );
             return;
         }
@@ -66,7 +66,7 @@ class Create : Command {
 
         writef(
             "%s[+] %sTask: %s%s %screated successfully\n",
-            GG, N, GG, name, N,
+            color_GG, color_N, color_GG, name, color_N,
         );
     }
 }

@@ -35,13 +35,13 @@ class Helper : Command {
 
         writef(
             "%sUsage: %sfyu %s<option> [<args>]%s\n",
-            N, GG, CC, N,
+            color_N, color_GG, color_CC, color_N,
         );
 
         writeln();
         writef(
             "%sAvailable options:\n",
-            N,
+            color_N,
         );
 
         foreach (filePath, fileContent; metaFS) {
@@ -56,18 +56,18 @@ class Helper : Command {
                 string argsStr = hp.args != "" ? " " ~ hp.args : "";
                 writef(
                     "    %s* %s%s%s%s%s\n",
-                    DG, GG, hp.command, CC, argsStr, N,
+                    color_DG, color_GG, hp.command, color_CC, argsStr, color_N,
                 );
 
                 writef(
                     "    %s└── %s%s%s\n",
-                    DG, WW, hp.description, N,
+                    color_DG, color_WW, hp.description, color_N,
                 );
             }
             catch (JSONException e) {
                 writef(
                     "%s[!] %sError parsing %s: %s%s%s\n",
-                    R, N, filePath, GG, e.msg, N,
+                    color_R, color_N, filePath, color_GG, e.msg, color_N,
                 );
             }
         }

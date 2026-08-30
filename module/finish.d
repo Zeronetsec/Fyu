@@ -43,7 +43,7 @@ class Finish : Command {
         if (!fileFound || !exists(filePath)) {
             writef(
                 "%s[!] %sTask: %s%s %snot found!\n",
-                R, N, GG, name, N,
+                color_R, color_N, color_GG, name, color_N,
             );
             return;
         }
@@ -61,7 +61,8 @@ class Finish : Command {
 
         writef(
             "%s[+] %sTask: %s%s %sfinished on %s%s%s\n",
-            GG, N, GG, name, N, GG, finishDate, N,
+            color_GG, color_N, color_GG, name, color_N,
+            color_GG, finishDate, color_N,
         );
     }
 }

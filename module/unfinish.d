@@ -42,7 +42,7 @@ class Unfinish : Command {
         if (!fileFound || !exists(filePath)) {
             writef(
                 "%s[!] %sTask: %s%s %snot found!\n",
-                R, N, GG, name, N,
+                color_R, color_N, color_GG, name, color_N,
             );
             return;
         }
@@ -57,7 +57,7 @@ class Unfinish : Command {
 
         writef(
             "%s[-] %sTask: %s%s %ssuccessfully reset to unfinished.\n",
-            YY, N, GG, name, N,
+            color_YY, color_N, color_GG, name, color_N,
         );
     }
 }

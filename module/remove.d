@@ -42,12 +42,12 @@ class Remove : Command {
             remove(filePath);
             writef(
                 "%s[-] %sTask: %s%s %sremoved successfully\n",
-                YY, N, GG, name, N,
+                color_YY, color_N, color_GG, name, color_N,
             );
         } else {
             writef(
                 "%s[!] %sTask: %s%s %snot found!\n",
-                R, N, GG, name, N,
+                color_R, color_N, color_GG, name, color_N,
             );
         }
     }

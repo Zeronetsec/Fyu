@@ -30,7 +30,7 @@ class EditNote : Command {
         } catch (ConvException e) {
             writef(
                 "%s[!] %sNote number must be an integer!\n",
-                R, N,
+                color_R, color_N,
             );
             return;
         }
@@ -60,7 +60,7 @@ class EditNote : Command {
         if (!fileFound || !exists(filePath)) {
             writef(
                 "%s[!] %sTask: %s%s %snot found!\n",
-                R, N, GG, name, N,
+                color_R, color_N, color_GG, name, color_N,
             );
             return;
         }
@@ -82,7 +82,7 @@ class EditNote : Command {
         ) {
             writef(
                 "%s[!] %sNo notes to edit in task: %s%s%s\n",
-                R, N, GG, name, N,
+                color_R, color_N, color_GG, name, color_N,
             );
             return;
         }
@@ -94,13 +94,13 @@ class EditNote : Command {
         ) {
             writef(
                 "%s[!] %sInvalid note number!\n",
-                R, N,
+                color_R, color_N,
             );
 
             writef(
                 "%s[*] %sAvailable note count for %s%s%s: %s1 %s- %s%d%s\n",
-                B, N, GG, name, N,
-                GG, DG, GG, notesArray.length, N,
+                color_B, color_N, color_GG, name, color_N,
+                color_GG, color_DG, color_GG, notesArray.length, color_N,
             );
             return;
         }
@@ -108,8 +108,8 @@ class EditNote : Command {
         int arrayIndex = noteNum - 1;
         writef(
             "%sCurrent note %s[%s%d%s]%s: %s%s%s\n",
-            N, DG, B, noteNum, DG, N,
-            GG, notesArray[arrayIndex], N,
+            color_N, color_DG, color_B, noteNum, color_DG, color_N,
+            color_GG, notesArray[arrayIndex], color_N,
         );
 
         write("New note: ");
@@ -117,12 +117,12 @@ class EditNote : Command {
         if (input.length == 0) {
             writef(
                 "%s[!] %sInput cannot be empty!\n",
-                R, N,
+                color_R, color_N,
             );
 
             writef(
                 "%s[!] %sEdit cancelled!\n",
-                R, N,
+                color_R, color_N,
             );
             return;
         }
@@ -135,7 +135,8 @@ class EditNote : Command {
 
         writef(
             "%s[+] %sNote %s%d %supdated in: %s%s%s\n",
-            GG, N, GG, noteNum, N, GG, name, N,
+            color_GG, color_N, color_GG, noteNum, color_N,
+            color_GG, name, color_N,
         );
     }
 }

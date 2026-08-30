@@ -30,7 +30,7 @@ class RemoveNote : Command {
         } catch (ConvException e) {
             writef(
                 "%s[!] %sNote number must be an integer!\n",
-                R, N,
+                color_R, color_N,
             );
             return;
         }
@@ -59,7 +59,7 @@ class RemoveNote : Command {
         if (!fileFound || !exists(filePath)) {
             writef(
                 "%s[!] %sTask: %s%s %snot found!\n",
-                R, N, GG, name, N,
+                color_R, color_N, color_GG, name, color_N,
             );
             return;
         }
@@ -81,7 +81,7 @@ class RemoveNote : Command {
         ) {
             writef(
                 "%s[!] %sNo notes to remove in task: %s%s%s\n",
-                R, N, GG, name, N,
+                color_R, color_N, color_GG, name, color_N,
             );
             return;
         }
@@ -93,13 +93,13 @@ class RemoveNote : Command {
         ) {
             writef(
                 "%s[!] %sInvalid note number!\n",
-                R, N,
+                color_R, color_N,
             );
 
             writef(
                 "%s[*] %sAvailable note count for %s%s%s: %s1 %s- %s%d%s\n",
-                B, N, GG, name, N,
-                GG, DG, GG, notesArray.length, N,
+                color_B, color_N, color_GG, name, color_N,
+                color_GG, color_DG, color_GG, notesArray.length, color_N,
             );
             return;
         }
@@ -107,8 +107,8 @@ class RemoveNote : Command {
         int arrayIndex = noteNum - 1;
         writef(
             "%sRemoved note %s[%s%d%s]%s: %s%s%s\n",
-            N, DG, B, noteNum, DG, N,
-            GG, notesArray[arrayIndex], N,
+            color_N, color_DG, color_B, noteNum, color_DG, color_N,
+            color_GG, notesArray[arrayIndex], color_N,
         );
 
         notesArray = notesArray[
@@ -127,7 +127,8 @@ class RemoveNote : Command {
 
         writef(
             "%s[-] %sNote %s%d %ssuccessfully removed from: %s%s%s\n",
-            YY, N, GG, noteNum, N, GG, name, N,
+            color_YY, color_N, color_GG, noteNum, color_N,
+            color_GG, name, color_N,
         );
     }
 }

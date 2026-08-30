@@ -30,7 +30,7 @@ class Search : Command {
         if (!exists(dataDir) || !isDir(dataDir)) {
             writef(
                 "%s[!] %sData directory not found!\n",
-                R, N,
+                color_R, color_N,
             );
             return;
         }
@@ -40,7 +40,7 @@ class Search : Command {
 
         writef(
             "%s[*] %sSearching for notes containing: %s%s%s\n",
-            B, N, GG, keyword, N,
+            color_B, color_N, color_GG, keyword, color_N,
         );
 
         foreach (DirEntry entry; dirEntries(
@@ -65,12 +65,13 @@ class Search : Command {
 
                     writef(
                         "%sTask: %s%s %s(%s%s%s)%s\n",
-                        N, GG, taskName, DG, CC, startDate, DG, N,
+                        color_N, color_GG, taskName, color_DG,
+                        color_CC, startDate, color_DG, color_N,
                     );
 
                     writef(
                         "%s└── %sNotes: %s%s%s\n",
-                        DG, N, WW, notesContent, N,
+                        color_DG, color_N, color_WW, notesContent, color_N,
                     );
                     writeln();
                 }
@@ -80,7 +81,7 @@ class Search : Command {
         if (!foundAny) {
             writef(
                 "%s[!] %sNo notes found matching: %s%s%s\n",
-                R, N, GG, keyword, N,
+                color_R, color_N, color_GG, keyword, color_N,
             );
         }
     }

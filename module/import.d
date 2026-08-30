@@ -24,12 +24,12 @@ class Import : Command {
         if (!zipPath.endsWith(".zip")) {
             writef(
                 "%s[!] %sInvalid file extension!\n",
-                R, N,
+                color_R, color_N,
             );
 
             writef(
                 "%s[!] %sOnly: %s.zip%s\n",
-                R, N, GG, N,
+                color_R, color_N, color_GG, color_N,
             );
             return;
         }
@@ -37,7 +37,7 @@ class Import : Command {
         if (!exists(zipPath) || !isFile(zipPath)) {
             writef(
                 "%s[!] %sBackup file: %s%s %snot found!\n",
-                R, N, GG, zipPath, N,
+                color_R, color_N, color_GG, zipPath, color_N,
             );
             return;
         }
@@ -77,12 +77,13 @@ class Import : Command {
         if (importedCount == 0) {
             writef(
                 "%s[!] %sNo valid .json tasks found inside the zip file!\n",
-                R, N,
+                color_R, color_N,
             );
         } else {
             writef(
                 "%s[+] %sSuccessfully imported: %s%d %stasks %s-> %s%s/%s\n",
-                GG, N, GG, importedCount, N, DG, GG, destDir, N,
+                color_GG, color_N, color_GG, importedCount, color_N, color_DG,
+                color_GG, destDir, color_N,
             );
         }
     }

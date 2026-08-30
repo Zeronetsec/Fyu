@@ -27,12 +27,12 @@ class AutoRemove : Command {
         ) {
             writef(
                 "%s[!] %sInvalid filter: %s%s%s\n",
-                R, N, GG, statusFilter, N,
+                color_R, color_N, color_GG, statusFilter, color_N,
             );
 
             writef(
                 "%s[!] %sTry: %sfyu --help%s\n",
-                R, N, GG, N,
+                color_R, color_N, color_GG, color_N,
             );
             return;
         }
@@ -57,7 +57,7 @@ class AutoRemove : Command {
         if (!exists(dataDir) || !isDir(dataDir)) {
             writef(
                 "%s[!] %sThere are no tasks to remove!\n",
-                R, N,
+                color_R, color_N,
             );
             return;
         }
@@ -100,7 +100,7 @@ class AutoRemove : Command {
             std.file.remove(filePath);
             writef(
                 "%s[-] %sTask: %s%s %sremoved successfully.\n",
-                YY, N, GG, name, N,
+                color_YY, color_N, color_GG, name, color_N,
             );
             removedCount++;
         }
@@ -108,12 +108,12 @@ class AutoRemove : Command {
         if (removedCount == 0) {
             writef(
                 "%s[!] %sNo tasks matched the criteria for removal!\n",
-                R, N,
+                color_R, color_N,
             );
         } else {
             writef(
                 "%s[+] %sTotal %s%d %stasks removed.\n",
-                GG, N, GG, removedCount, N,
+                color_GG, color_N, color_GG, removedCount, color_N,
             );
         }
     }

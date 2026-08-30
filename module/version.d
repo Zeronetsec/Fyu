@@ -15,22 +15,22 @@ class Version : Command {
 
         writef(
             "%sName: %s%s%s\n",
-            N, GG, name, N,
+            color_N, color_GG, name, color_N,
         );
 
         writef(
             "%sVersion: %s%s%s\n",
-            N, GG, ver, N,
+            color_N, color_GG, ver, color_N,
         );
 
         writef(
             "%sCreator: %s%s%s\n",
-            N, GG, creator, N,
+            color_N, color_GG, creator, color_N,
         );
 
         writef(
             "%sHomepage: %s%s%s\n",
-            N, GG, homepage, N,
+            color_N, color_GG, homepage, color_N,
         );
     }
 }

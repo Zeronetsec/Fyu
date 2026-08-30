@@ -8,12 +8,12 @@ import utils.color;
 void missingArgument() {
     writef(
         "%s[!] %sMissing argument!\n",
-        R, N,
+        color_R, color_N,
     );
 
     writef(
         "%s[!] %sTry: %sfyu --help%s\n",
-        R, N, GG, N,
+        color_R, color_N, color_GG, color_N,
     );
 }
 

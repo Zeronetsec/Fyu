@@ -22,12 +22,12 @@ class List : Command {
             } else {
                 writef(
                     "%s[!] %sInvalid filter: %s%s%s\n",
-                    R, N, GG, args[0], N,
+                    color_R, color_N, color_GG, args[0], color_N,
                 );
 
                 writef(
                     "%s[!] %sTry: %sfyu --help%s\n",
-                    R, N, GG, N,
+                    color_R, color_N, color_GG, color_N,
                 );
                 return;
             }
@@ -44,7 +44,7 @@ class List : Command {
         if (!exists(dataDir) || !isDir(dataDir)) {
             writef(
                 "%s[!] %sThere are no tasks yet!\n",
-                R, N,
+                color_R, color_N,
             );
             return;
         }
@@ -78,17 +78,17 @@ class List : Command {
             hasFiles = true;
             writef(
                 "%s* %s%s%s\n",
-                DG, GG, name, N,
+                color_DG, color_GG, name, color_N,
             );
 
             writef(
                 "%s└── %sStart: %s%s%s\n",
-                DG, N, GG, startDate, N,
+                color_DG, color_N, color_GG, startDate, color_N,
             );
 
             writef(
                 "%s└── %sFinish: %s%s%s\n",
-                DG, N, GG, finishDate, N,
+                color_DG, color_N, color_GG, finishDate, color_N,
             );
             writeln();
         }
@@ -97,17 +97,17 @@ class List : Command {
             if (filter == "finish") {
                 writef(
                     "%s[!] %sThere are no finished tasks!\n",
-                    R, N,
+                    color_R, color_N,
                 );
             } else if (filter == "unfinish") {
                 writef(
                     "%s[!] %sThere are no unfinished tasks!\n",
-                    R, N,
+                    color_R, color_N,
                 );
             } else {
                 writef(
                     "%s[!] %sThere are no tasks yet!\n",
-                    R, N,
+                    color_R, color_N,
                 );
             }
         }

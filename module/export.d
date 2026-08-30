@@ -24,12 +24,12 @@ class Export : Command {
         if (!zipName.endsWith(".zip")) {
             writef(
                 "%s[!] %sInvalid file extension!\n",
-                R, N,
+                color_R, color_N,
             );
 
             writef(
                 "%s[!] %sOnly: %s.zip%s\n",
-                R, N, GG, N,
+                color_R, color_N, color_GG, color_N,
             );
             return;
         }
@@ -45,7 +45,7 @@ class Export : Command {
         if (!exists(dataDir) || !isDir(dataDir)) {
             writef(
                 "%s[!] %sSource directory: %s%s %sdoes not exist!\n",
-                R, N, GG, dataDir, N,
+                color_R, color_N, color_GG, dataDir, color_N,
             );
             return;
         }
@@ -74,7 +74,7 @@ class Export : Command {
         if (!hasFiles) {
             writef(
                 "%s[!] %sNo data found in %s%s %sto export!\n",
-                R, N, GG, dataDir, N,
+                color_R, color_N, color_GG, dataDir, color_N,
             );
             return;
         }
@@ -86,7 +86,7 @@ class Export : Command {
 
         writef(
             "%s[+] %sSuccessfully exported all task: %s%s%s\n",
-            GG, N, GG, zipName, N,
+            color_GG, color_N, color_GG, zipName, color_N,
         );
     }
 }

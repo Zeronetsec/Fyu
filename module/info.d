@@ -22,12 +22,12 @@ class Info : Command {
             } else {
                 writef(
                     "%s[!] %sInvalid filter: %s%s%s\n",
-                    R, N, GG, args[0], N,
+                    color_R, color_N, color_GG, args[0], color_N,
                 );
 
                 writef(
                     "%s[!] %sTry: %sfyu --help%s\n",
-                    R, N, GG, N,
+                    color_R, color_N, color_GG, color_N,
                 );
                 return;
             }
@@ -44,7 +44,7 @@ class Info : Command {
         if (!exists(dataDir) || !isDir(dataDir)) {
             writef(
                 "%s[!] %sThere are no tasks found!\n",
-                R, N,
+                color_R, color_N,
             );
             return;
         }
@@ -88,7 +88,7 @@ class Info : Command {
         if (totalTasks == 0) {
             writef(
                 "%s[!] %sThere are no tasks found!\n",
-                R, N,
+                color_R, color_N,
             );
             return;
         }
@@ -100,22 +100,22 @@ class Info : Command {
 
             writef(
                 "%s[*] %sTotal Tasks: %s%d%s\n",
-                B, N, GG, totalTasks, N,
+                color_B, color_N, color_GG, totalTasks, color_N,
             );
 
             writef(
                 "%s[*] %sFinished Tasks: %s%d%s\n",
-                B, N, GG, finishedTasks, N,
+                color_B, color_N, color_GG, finishedTasks, color_N,
             );
 
             writef(
                 "%s[*] %sUnfinished Tasks: %s%d%s\n",
-                B, N, GG, unfinishedTasks, N,
+                color_B, color_N, color_GG, unfinishedTasks, color_N,
             );
 
             writef(
                 "%s[*] %sCompletion Rate: %s%.1f%%%s\n",
-                B, N, GG, percentage, N,
+                color_B, color_N, color_GG, percentage, color_N,
             );
 
         } else if (filter == "finish") {
@@ -124,13 +124,14 @@ class Info : Command {
             ) * 100.0;
             writef(
                 "%s[*] %sFinished Tasks: %s%d %s/ %s%d %s(%s%.1f%%%s)%s\n",
-                B, N, GG, finishedTasks, DG,
-                GG, totalTasks, DG, CC, percentage, DG, N,
+                color_B, color_N, color_GG, finishedTasks, color_DG,
+                color_GG, totalTasks, color_DG, color_CC, percentage, color_DG,
+                color_N,
             );
 
             writef(
                 "%sCompleted Task List:\n",
-                N,
+                color_N,
             );
 
             bool found = false;
@@ -139,15 +140,17 @@ class Info : Command {
                     found = true;
                     writef(
                         "%s* %s%s %s(%sStart: %s%s %s| %sFinish: %s%s%s)%s\n",
-                        DG, GG, t.name, DG, WW, GG, t.startDate, DG,
-                        WW, GG, t.finishDate, DG, N,
+                        color_DG, color_GG, t.name, color_DG,
+                        color_WW, color_GG, t.startDate, color_DG,
+                        color_WW, color_GG, t.finishDate, color_DG,
+                        color_N,
                     );
                 }
             }
             if (!found) {
                 writef(
                     "%s[!] %sNo finished tasks available.\n",
-                    R, N,
+                    color_R, color_N,
                 );
             }
 
@@ -157,13 +160,14 @@ class Info : Command {
             ) * 100.0;
             writef(
                 "%s[*] %sUnfinished Tasks: %s%d %s/ %s%d %s(%s%.1f%%%s)%s\n",
-                B, N, GG, unfinishedTasks, DG,
-                GG, totalTasks, DG, CC, percentage, DG, N,
+                color_B, color_N, color_GG, unfinishedTasks, color_DG,
+                color_GG, totalTasks, color_DG, color_CC, percentage, color_DG,
+                color_N,
             );
 
             writef(
                 "%sPending Task List:\n",
-                N,
+                color_N,
             );
 
             bool found = false;
@@ -172,15 +176,16 @@ class Info : Command {
                     found = true;
                     writef(
                         "%s* %s%s %s(%sStart: %s%s%s)%s\n",
-                        DG, GG, t.name, DG,
-                        WW, GG, t.startDate, DG, N,
+                        color_DG, color_GG, t.name, color_DG,
+                        color_WW, color_GG, t.startDate, color_DG,
+                        color_N,
                     );
                 }
             }
             if (!found) {
                 writef(
                     "%s[!] %sNo unfinished tasks available!\n",
-                    R, N,
+                    color_R, color_N,
                 );
             }
         }

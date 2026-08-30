@@ -28,7 +28,7 @@ function install::extern::androidInstaller() {
     "
         echo '
             #!/usr/bin/env bash
-            exec proot-distro login \"${rname}\" --work-dir \$(pwd) -- ${targetins} \"\${@}\"
+            exec proot-distro login \"${rname}\" --work-dir \$(pwd) -- ${targetins} \"\${*}\"
         ' > ${bin}/${targetins}
     " \
     "Bridging: ${color_GG}${bin}/${targetins} ${color_DG}-> ${color_GG}${rootfs}/${rname}/rootfs/usr/bin/${targetins}${color_N}"

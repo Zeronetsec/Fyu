@@ -43,7 +43,7 @@ class AddNote : Command {
         if (!fileFound || !exists(filePath)) {
             writef(
                 "%s[!] %sTask: %s%s %snot found!\n",
-                R, N, GG, name, N,
+                color_R, color_N, color_GG, name, color_N,
             );
             return;
         }
@@ -57,7 +57,7 @@ class AddNote : Command {
         if (input.length == 0) {
             writef(
                 "%s[!] %sNothing note entered!\n",
-                R, N,
+                color_R, color_N,
             );
             return;
         }
@@ -85,7 +85,7 @@ class AddNote : Command {
 
         writef(
             "%s[+] %sNote added to: %s%s%s\n",
-            GG, N, GG, name, N,
+            color_GG, color_N, color_GG, name, color_N,
         );
     }
 }

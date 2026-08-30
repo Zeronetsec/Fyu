@@ -9,7 +9,7 @@ private enum string bannerText = import("data/ascii.txt");
 void banner() {
     writef(
         "%s%s%s\n",
-        B, bannerText, N,
+        color_B, bannerText, color_N,
     );
 }
 
