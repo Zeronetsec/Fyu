@@ -25,11 +25,14 @@ function install::extern::androidInstaller() {
         "
 
     install::getinstall \
-    "
-        echo '
-            #!/usr/bin/env bash
-            exec proot-distro login \"${rname}\" --work-dir \$(pwd) -- ${targetins} \"\${*}\"
-        ' > ${bin}/${targetins}
-    " \
-    "Bridging: ${color_GG}${bin}/${targetins} ${color_DG}-> ${color_GG}${rootfs}/${rname}/rootfs/usr/bin/${targetins}${color_N}"
+        "
+            echo '
+                #!/usr/bin/env bash
+                exec -a Fyu \
+                    glibc-runner \
+                    ${rootfs}/${rname}/rootfs/usr/opt/${targetins}/${targetins} \
+                    \"\${*}\"
+            ' > ${bin}/${targetins}
+        " \
+        "Bridging: ${color_GG}${bin}/${targetins} ${color_DG}-> ${color_GG}${rootfs}/${rname}/rootfs/usr/opt/${targetins}/${targetins}${color_N}"
 }; readonly -f install::extern::androidInstaller
