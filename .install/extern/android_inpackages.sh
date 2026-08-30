@@ -11,7 +11,8 @@ function install::extern::androidInpackages() {
         install::zinstall "${line}"
 
         if [[ "${line}" =~ ^(tur-repo|glibc-repo)$ ]]; then
-            command apt update -y
+            command apt update -y \
+                > /dev/null 2>&1
             export DEBIAN_FRONTEND=noninteractive
             command apt \
                 -o Dpkg::Options::="--force-confdef" \
