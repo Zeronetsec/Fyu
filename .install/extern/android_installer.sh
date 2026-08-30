@@ -26,13 +26,27 @@ function install::extern::androidInstaller() {
 
     install::getinstall \
         "
+            command cp \
+                ${rootfs}/${rname}/rootfs/usr/opt/${targetins}/${targetins} \
+                ${opt}/${targetins}/${targetins}
+        " \
+        "Copying: ${color_GG}${rootfs}/${rname}/rootfs/usr/opt/${targetins}/${targetins} ${color_DG}-> ${color_GG}${opt}/${targetins}/${targetins}${color_N}"
+
+    if [[ ! -x "${opt}/${targetins}/${targetins}" ]]; then
+        install::getinstall \
+            "command chmod +x ${opt}/${targetins}/${targetins}" \
+            "Set permission for: ${color_GG}${opt}/${targetins}/${targetins}${color_N}"
+    fi
+
+    install::getinstall \
+        "
             echo '
                 #!/usr/bin/env bash
                 exec -a Fyu \
                     glibc-runner \
-                    ${rootfs}/${rname}/rootfs/usr/opt/${targetins}/${targetins} \
+                    ${opt}/${targetins}/${targetins}
                     \"\${*}\"
             ' > ${bin}/${targetins}
         " \
-        "Bridging: ${color_GG}${bin}/${targetins} ${color_DG}-> ${color_GG}${rootfs}/${rname}/rootfs/usr/opt/${targetins}/${targetins}${color_N}"
+        "Create file: ${color_GG}${bin}/${targetins} ${color_DG}-> ${color_GG}${opt}/${targetins}/${targetins}${color_N}"
 }; readonly -f install::extern::androidInstaller
