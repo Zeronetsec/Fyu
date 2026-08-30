@@ -1,5 +1,5 @@
 function install::extern::setupRootfs() {
-    echo -e "${B}[*] ${N}Installing: ${GG}proot-distro${N}"
+    echo -e "${color_B}[*] ${color_N}Installing: ${color_GG}proot-distro${color_N}"
     install::zinstall "proot-distro"
 
     if [[ "${__NOREMRFS__}" == false ]]; then
@@ -17,7 +17,7 @@ function install::extern::setupRootfs() {
                     debian:13 \
                     --name ${rname}
             " \
-            "Installing rootfs: ${GG}debian:13 ${DG}-> ${GG}${rname}${N}"
+            "Installing rootfs: ${color_GG}debian:13 ${color_DG}-> ${color_GG}${rname}${color_N}"
     fi
 
     install::getinstall \
@@ -30,6 +30,7 @@ function install::extern::setupRootfs() {
                     command apt \
                         -o Dpkg::Options::=\"--force-confdef\" \
                         -o Dpkg::Options::=\"--force-confold\" \
+                        -o Dpkg::Options::=\"--force-overwrite\" \
                         full-upgrade -y
                 ' \
         " \

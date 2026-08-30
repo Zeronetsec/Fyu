@@ -38,9 +38,9 @@ function install::extern::androidCheck() {
     }
 
     if __android_check__; then
-        echo -e "${B}[*] ${N}Android detected."
-        echo -e "${YY}[!] ${N}The D language is not yet fully stable in Termux."
-        echo -e "${YY}[!] ${N}Installing within the rootfs."
+        echo -e "${color_B}[*] ${color_N}Android detected."
+        echo -e "${color_YY}[!] ${color_N}The D language is not yet fully stable in Termux."
+        echo -e "${color_YY}[!] ${color_N}Installing within the rootfs."
         install::extern::setupRootfs
         install::extern::androidInpackages
         install::backup
@@ -48,7 +48,7 @@ function install::extern::androidCheck() {
         install::extern::androidInstaller
         install::chmod
         install::checker
-        trap - EXIT
+        trap - ERR EXIT
         exit ${?}
     fi
 }; readonly -f install::extern::androidCheck

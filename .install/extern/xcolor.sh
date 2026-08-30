@@ -1,1 +1,1 @@
-export YY='\x1b[0;33m'; readonly YY
+export color_YY='\x1b[0;33m'; readonly color_YY

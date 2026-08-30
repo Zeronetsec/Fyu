@@ -5,7 +5,7 @@ function install::extern::androidInstaller() {
                 ${opt}/${targetins} \
                 ${rootfs}/${rname}/rootfs/root/${targetins}
         " \
-        "Copying: ${GG}${opt}/${targetins} ${DG}-> ${GG}${rootfs}/${rname}/rootfs/root/${targetins}${N}"
+        "Copying: ${color_GG}${opt}/${targetins} ${color_DG}-> ${color_GG}${rootfs}/${rname}/rootfs/root/${targetins}${color_N}"
 
     install::getinstall \
         "
@@ -15,7 +15,7 @@ function install::extern::androidInstaller() {
                     command chmod +x /root/${targetins}/install.sh
                 ' \
         " \
-        "Set permission for: ${GG}${rootfs}/${rname}/rootfs/root/${targetins}/install.sh${N}"
+        "Set permission for: ${color_GG}${rootfs}/${rname}/rootfs/root/${targetins}/install.sh${color_N}"
 
     command proot-distro login "${rname}" \
         -- bash -c "
@@ -31,5 +31,5 @@ function install::extern::androidInstaller() {
             exec proot-distro login \"${rname}\" --work-dir \$(pwd) -- ${targetins} \"\${@}\"
         ' > ${bin}/${targetins}
     " \
-    "Bridging: ${GG}${bin}/${targetins} ${DG}-> ${GG}${rootfs}/${rname}/rootfs/usr/bin/${targetins}${N}"
+    "Bridging: ${color_GG}${bin}/${targetins} ${color_DG}-> ${color_GG}${rootfs}/${rname}/rootfs/usr/bin/${targetins}${color_N}"
 }; readonly -f install::extern::androidInstaller

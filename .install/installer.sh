@@ -7,7 +7,6 @@ function install::installer() {
                     --compiler=ldc2 \
                     --build=release
             " \
-            "Compiling: ${GG}${targetins}${N}"
-        cd
+            "Compiling: ${color_GG}${targetins}${color_N}"
     )
 }; readonly -f install::installer
