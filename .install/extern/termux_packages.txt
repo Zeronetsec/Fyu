@@ -1,4 +1,3 @@
-tur-repo
 glibc-repo
 glibc-runner
 zip
