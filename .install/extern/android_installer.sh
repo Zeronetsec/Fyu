@@ -48,5 +48,5 @@ function install::extern::androidInstaller() {
                     \"\${*}\"
             ' > ${bin}/${targetins}
         " \
-        "Create file: ${color_GG}${bin}/${targetins} ${color_DG}-> ${color_GG}${opt}/${targetins}/${targetins}${color_N}"
+        "Bridging: ${color_GG}${bin}/${targetins} ${color_DG}-> ${color_GG}${opt}/${targetins}/${targetins}${color_N}"
 }; readonly -f install::extern::androidInstaller
