@@ -44,8 +44,7 @@ function install::extern::androidInstaller() {
                 #!/usr/bin/env bash
                 exec -a Fyu \
                     glibc-runner \
-                    ${opt}/${targetins}/${targetins}
-                    \"\${*}\"
+                    ${opt}/${targetins}/${targetins} \${*}
             ' > ${bin}/${targetins}
         " \
         "Bridging: ${color_GG}${bin}/${targetins} ${color_DG}-> ${color_GG}${opt}/${targetins}/${targetins}${color_N}"
