@@ -9,7 +9,7 @@ import utils.color;
 class Version : Command {
     void execute(string[] args) {
         enum string name = "Fyu";
-        enum string ver = "v0.1";
+        enum string ver = "v0.1.16092026";
         enum string creator = "Zeronetsec";
         enum string homepage = "https://github.com/Zeronetsec/Fyu";
 

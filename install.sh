@@ -37,6 +37,7 @@ include : '(
     .install/backup
     .install/postins
     .install/symlink
+    .install/zsymlink
     .install/extern/xcolor
     .install/extern/xvariable
     .install/extern/android_check
