@@ -49,12 +49,14 @@ include : '(
 HOME="${HOME}"
 __BACKUP__=false
 __NOREMRFS__=false
+__XCOMPILE__=false
 
 while [[ ${#} -gt 0 ]]; do
     case "${1}" in
         "--home="*) export HOME="${1#*=}" ;;
         "--backup") export __BACKUP__=true ;;
         "--no-remove-rootfs") export __NOREMRFS__=true ;;
+        "--xcompile") export __XCOMPILE__="${2}" ;;
     esac
     shift
 done

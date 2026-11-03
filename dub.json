@@ -1,10 +1,10 @@
 {
     "name": "fyu",
-    "targetType": "executable",
+    "mainSourceFile": "fyu.d",
     "sourcePaths": ["."],
+    "stringImportPaths": ["."],
+    "targetType": "executable",
     "preBuildCommands": [
         "command ls metadata/*.json | command sed 's/metadata\\///' > metadata.txt"
-    ],
-    "stringImportPaths": ["."],
-    "mainSourceFile": "fyu.d"
+    ]
 }

@@ -6,12 +6,9 @@ import std.process : environment;
 import std.path : buildPath;
 
 string getRoot() {
-    string prefix = environment.get(
-        "PREFIX", "/usr",
-    );
-
+    string home = environment.get("HOME", ".");
     return buildPath(
-        prefix, "opt", "fyu",
+        home, ".local", "opt", "fyu",
     );
 }
 

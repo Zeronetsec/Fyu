@@ -2,3 +2,4 @@ clang
 ldc
 dub
 zip
+lld

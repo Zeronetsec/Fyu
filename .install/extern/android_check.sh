@@ -38,13 +38,13 @@ function install::extern::androidCheck() {
     }
 
     if __android_check__; then
-        echo -e "${color_YY}[*] ${color_N}Android detected."
+        echo -e "${color_YY}[!] ${color_N}Android detected."
         echo -e "${color_YY}[!] ${color_N}The D language is not yet fully stable in Termux."
         echo -e "${color_YY}[!] ${color_N}Installing within the rootfs."
         install::extern::setupRootfs
         install::extern::androidInpackages
         install::backup
-        install::postins
+        install::rmov
         install::extern::androidInstaller
         install::chmod
         install::checker

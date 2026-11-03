@@ -27,10 +27,10 @@ function install::extern::androidInstaller() {
     install::getinstall \
         "
             command cp \
-                ${rootfs}/${rname}/rootfs/usr/opt/${targetins}/${targetins} \
+                ${rootfs}/${rname}/rootfs/root/.local/opt/${targetins}/${targetins} \
                 ${opt}/${targetins}/${targetins}
         " \
-        "Copying: ${color_GG}${rootfs}/${rname}/rootfs/usr/opt/${targetins}/${targetins} ${color_DG}-> ${color_GG}${opt}/${targetins}/${targetins}${color_N}"
+        "Copying: ${color_GG}${rootfs}/${rname}/rootfs/root/.local/opt/${targetins}/${targetins} ${color_DG}-> ${color_GG}${opt}/${targetins}/${targetins}${color_N}"
 
     if [[ ! -x "${opt}/${targetins}/${targetins}" ]]; then
         install::getinstall \
@@ -41,9 +41,8 @@ function install::extern::androidInstaller() {
     install::getinstall \
         "
             echo '
-                #!$(command -v bash)
-                exec -a Fyu \
-                    glibc-runner \
+                #!$(command -v sh)
+                exec glibc-runner \
                     ${opt}/${targetins}/${targetins} \${*}
             ' > ${bin}/${targetins}
         " \
